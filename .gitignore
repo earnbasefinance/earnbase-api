@@ -1,0 +1,11 @@
+node_modules
+.vscode
+yarn-error.log
+error.log
+info.log
+combined.log
+.env
+updatelist
+
+cache
+artifacts

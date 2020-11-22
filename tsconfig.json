@@ -1,0 +1,68 @@
+{
+    "compilerOptions": {
+      "incremental": true,
+      "target": "es2019",
+      "module": "commonjs",
+      "lib": ["DOM", "ES2019"],
+      "allowJs": false,
+      "checkJs": false,
+      "jsx": "preserve",
+      "declaration": true,
+      "declarationMap": true,
+      "sourceMap": true,
+      "outDir": "./dist-tsc",
+      "rootDir": ".",
+      "composite": true,
+      "tsBuildInfoFile": "./tsBuildInfoFile.json",
+      "noEmit": true,
+      "importHelpers": true,
+      "downlevelIteration": true,
+      "isolatedModules": false,
+      "strict": true,
+      "noImplicitAny": true,
+      "strictFunctionTypes": true,
+      "strictBindCallApply": true,
+      "noImplicitThis": true,
+      "alwaysStrict": true,
+      "noImplicitReturns": true,
+      "noFallthroughCasesInSwitch": true,
+      "moduleResolution": "node",
+      "baseUrl": "./node_modules",
+      "paths": {
+          "*": [
+              "./",
+              "./@types/",
+              "../src/types/"
+          ]
+      },
+      "typeRoots": ["./src/types/"],
+      "types": [
+          "node",
+          "express",
+          "body-parser",
+          "compression",
+          "winston",
+      ],
+      "allowSyntheticDefaultImports": true,
+      "esModuleInterop": true,
+      "preserveSymlinks": true,
+      "allowUmdGlobalAccess": true,
+      "forceConsistentCasingInFileNames": true,
+      "pretty": true,
+      "traceResolution": true,
+      "resolveJsonModule": true,
+    },
+    "include": [
+        "./src/express.ts",
+        "./src/server.ts",
+        "./src/**/*.ts",
+        "./src/**/*.json",
+        "./src/**/**/*.ts",
+        "./src/**/**/**/*.ts", 
+        "./src/index.js",
+    ],
+    "exclude": [
+        "./node_modules",
+        "src/index.js"
+    ]
+}
