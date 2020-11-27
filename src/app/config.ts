@@ -24,4 +24,12 @@ export const Addresses = {
     investorVesting: "0x4cD26a54D007b14Df6fBd8F6eA73217154400f60",
     teamVesting: "0xd5141A7F18584B3cd33808501e3811de673DEA62",
     ecosystemRewardsVesting: "0xc89dc40fd7d308763ec1e7a8df13a8d00676e547",
+    circulatingExclude: [
+        "0xCfb6FAA6325F834A88Af639Cc24C7FCE77c19030",
+        "0xed0c81eE00753B37FD4Ce3094827019A02bC8A28",
+        "0x2845809b4Ec0D747655a5f28077e804E186A903d",
+        "0xacd1f4eee0a4589cfa591b26b9743c08043315ee",
+        "0x99408bad8d3f942eb2a88d102ca2855f34db19c0",
+        "0xC2ce2bedDE7Fba4B40971A91AC0abb481E22Db11",
+    ],
 };

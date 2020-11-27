@@ -38,16 +38,17 @@ const getSupply = async () => {
             ERC20Abi,
             provider
         );
-        const totalSupply: BigNumber = await enbContract.totalSupply();
-        const investor: BigNumber = await enbContract.balanceOf(
-            Addresses.investorVesting
-        );
-        const team: BigNumber = await enbContract.balanceOf(
-            Addresses.teamVesting
-        );
-        const ecosystemRewards: BigNumber = await enbContract.balanceOf(
-            Addresses.ecosystemRewardsVesting
-        );
+        let supply: BigNumber = await enbContract.totalSupply();
+
+        const excludes = await Promise.all([
+            enbContract.balanceOf(Addresses.ecosystemRewardsVesting),
+            enbContract.balanceOf(Addresses.teamVesting),
+            enbContract.balanceOf(Addresses.investorVesting),
+            ...Addresses.circulatingExclude.map(addr =>
+                enbContract.balanceOf(addr)
+            ),
+        ]);
+
         const [govRewards, uniRewards, balRewards] = await Promise.all([
             getRemainingRewards(Addresses.govPoolAddress),
             getRemainingRewards(Addresses.uniLpPoolAddress),
@@ -56,10 +57,11 @@ const getSupply = async () => {
 
         const burned = BigNumber.from(10).pow(16).mul(1070266);
 
-        return totalSupply
-            .sub(investor)
-            .sub(ecosystemRewards)
-            .sub(team)
+        for (const exclude of excludes) {
+            supply = supply.sub(exclude);
+        }
+
+        return supply
             .sub(govRewards || 0)
             .sub(uniRewards || 0)
             .sub(balRewards || 0)
