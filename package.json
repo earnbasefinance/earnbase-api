@@ -12,7 +12,7 @@
     "build:webpack": "NODE_ENV=production webpack --config=webpack.config.js --mode=production --color",
     "build": "npm run clean && run-p -l build:*",
     "type-check": "tsc --traceResolution",
-    "start": "nodemon ./src/index.ts",
+    "start": "nodemon ./src/index.ts --inspect",
     "postinstall": "typesync"
   },
   "author": "",

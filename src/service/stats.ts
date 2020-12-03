@@ -121,6 +121,10 @@ setInterval(() => {
     provider.on("block", handleNewBlock);
 }, 5 * 60 * 1000);
 
+setInterval(() => {
+    provider.getBlockNumber().then(handleNewBlock).catch(logger.error);
+}, 1 * 60 * 1000);
+
 // eslint-disable-next-line @typescript-eslint/no-floating-promises
 updateStats(0);
 
