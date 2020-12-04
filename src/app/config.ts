@@ -1,4 +1,4 @@
-export const { ALCHEMY_KEY } = process.env;
+export const { ALCHEMY_KEY, INFURA_KEY } = process.env;
 
 export const WETH = "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2";
 

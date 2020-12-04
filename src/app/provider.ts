@@ -1,7 +1,7 @@
 import { providers } from "ethers";
-import { ALCHEMY_KEY } from "./config";
+import { INFURA_KEY } from "./config";
 
 export const provider = new providers.WebSocketProvider(
-    `wss://eth-mainnet.ws.alchemyapi.io/v2/${ALCHEMY_KEY}`
+    `wss://mainnet.infura.io/ws/v3/${INFURA_KEY}`
 );
 export const getProvider = () => provider;
